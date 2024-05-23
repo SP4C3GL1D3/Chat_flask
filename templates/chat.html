@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Chat</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div class="title">
+                <h1>ChatNow</h1>
+            </div>
+            <div class="form">
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    {{ form.zprava }}
+                    <div class="inputbtn">
+                        <input type="submit" value="Odeslat">
+                        <div class="link">
+                            <a href="/odhlasit" class="button">Odhlásit</a>
+                        </div>
+                    </div> 
+                </form>               
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="chat-messages">
+                {% for zprava in zpravy %}
+                    <div class="chat-message">
+                        <div class="chat-sender">{{ zprava[0] }}:</div>
+                        <div class="chat-message-body">{{ zprava[1] }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
